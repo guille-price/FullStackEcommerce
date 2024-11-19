@@ -1,21 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import products from '../assets/products.json';
+import ProductListItem from '../components/ProductListItem';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Home Screen</Text>
       <Text>Yeonhi Mobile e-Shop!</Text>
-      <StatusBar style="auto" />
+      <FlatList data={products} 
+          renderItem={({ item }) => <ProductListItem product={item.name} />}
+      />
+      
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
